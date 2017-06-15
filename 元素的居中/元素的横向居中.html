@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>元素的居中</title>
+</head>
+<body>
+<!--
+水平居中
+-->
+<!--子元素为行内元素,父元素为块级元素，子元素为行内元素 或者文本-->
+<!--子元素为inline或者inline-*的均适用-->
+<div class="parent">
+    <a href="">me</a>
+</div>
+<div class="parent">
+    <div style="display: inline-block">
+        inline-block
+    </div>
+</div>
+<div class="parent">
+    <div style="display: inline-block">
+        inline-block
+    </div>
+</div>
+<style>
+    .parent {
+        text-align: center;
+    }
+</style>
+<!--子元素为块状元素-->
+<!--提示:子元素不能够有浮动-->
+<div>
+    <div class="margin-auto">
+        margin-auto
+    </div>
+</div>
+<style>
+    .margin-auto{
+        width: 50%;
+        margin:0 auto;
+        background: #ffdf66;
+    /*<!--提示:子元素不能够有浮动-->*/
+        /*float: left;*/
+    }
+</style>
+<!--多个块状元素一列居中-->
+<!--flex布局解决问题-->
+<!--justify-content?-->
+<div id='row-parent'>
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+</div>
+
+<style>
+    #row-parent{
+        display: flex;
+    }
+
+    #row-parent div {
+        flex: 1;
+        background: #ffffb8;
+        /*text-align: center;*/
+        justify-content: center;
+    }
+</style>
+<!--inline-block 解决方法 -->
+<!--其实就是跟方法一 父元素为块 子元素为行一样-->
+<div id="row-parent-ib">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+</div>
+<style>
+    #row-parent-ib{
+        text-align: center;
+    }
+    #row-parent-ib div{
+        display: inline-block;
+        background: #12c6fa;
+    }
+</style>
+</body>
+</html>

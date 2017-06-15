@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>元素的纵向居中</title>
+</head>
+<body>
+<!--
+    元素的纵向居中
+-->
+<!--法一-->
+<!--行内元素 inline 或者inline-*元素-->
+<!---->
+<div id="parent">
+    <a href="">我是行内元素</a>
+    <div style="display: inline-block;">我是行内块元素</div>
+</div>
+<style>
+    #parent{
+        width: 100%;
+        line-height:10em;
+        background: #fffc6d;
+    }
+
+    #parent a{
+        vertical-align: middle;
+    }
+</style>
+
+<!--法二-->
+<!--上下元素padding相同-->
+<div id="padding-parent">
+    <a href="">10</a>
+    <!--<img src="http://imgsrc.baidu.com/baike/pic/item/7c1ed21b0ef41bd5ec4a4c9d52da81cb39db3db9.jpg" alt="">-->
+    <a href="" style="">100</a>
+</div>
+<style>
+    /*<!--父元素必须要padding不然 容器无法包裹子元素-->*/
+    #padding-parent{
+        /*overflow: hidden;*/
+        padding:40px;
+        background: gainsboro;
+    }
+    #padding-parent *{
+        padding-top:30px;
+        padding-bottom: 30px;
+        /*padding:20px 10px;*/
+        background: #80cbb8;
+    }
+</style>
+
+<!--法三-->
+<!--直接设高等于行高也可以居中文字。。-->
+<div style="height:100px;line-height: 100px">
+    我是行高
+</div>
+<!--法四-->
+<!--多行居中 diplay:table-->
+<!--父元素display:table 子元素display：table-cell;vertical-align:middle-->
+<div style="display: table" id="table-parent">
+    <div style="display: table-cell" id="">i am display table-cell</div>
+</div>
+<style>
+    #table-parent{
+        /*display: table;*/
+        height: 200px;
+    }
+    #table-parent div{
+        vertical-align: middle;
+    }
+</style>
+<div>
+    <div></div>
+</div>
+
+<!--法五-->
+<!--多行元素居中 flex-->
+<div id="flex-parent">
+    <div>用flex垂直居中</div>
+</div>
+<style>
+    #flex-parent{
+        display: flex;
+        justify-content: center;/*？*/
+        flex-direction: column;/*这个是居中方向*/
+        height:200px;
+    }
+</style>
+
+<!--法6-->
+<!--伪元素居中-->
+<div id="gosh-ele">
+    <p>用伪元素居中</p>
+</div>
+<style>
+    #gosh-ele{
+        height: 200px;
+    }
+    #gosh-ele:before {
+        content: "";
+        height: 100%;
+        display: inline-block;
+        vertical-align: middle;
+    }
+    #gosh-ele p{
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+</style>
+</body>
+</html>
