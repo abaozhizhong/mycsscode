@@ -4,7 +4,74 @@
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
+<!--参考文章-->
+<!--https://css-tricks.com/centering-css-complete-guide/-->
 <body>
+<!--
+   垂直居中与横向居中
+-->
+<!--法一-->
+<!--知道高度与宽度-->
+<div style="position: relative;width: 100px;height: 150px;background: red;margin: 0 auto">
+        <div style="position: absolute;margin-left: 50%;margin-top: 50%;">
+            我是内容
+        </div>
+</div>
 
+<!--法二-->
+<!--不知道高度与宽度-->
+<!--c3的translate-->
+<div style="width: 100%;position: relative;height: 500px">
+    <div style="position: absolute;top: 50%;left: 50%;transform: translate(-50%,-50%)">
+            我是要居中的元素
+    </div>
+</divstyle>
+
+
+    <!--法三-->
+    <!--flex布局-->
+    <div style="background: red;display: flex;justify-content:center;align-items: center;height: 50px;width: 60%;margin: 0 auto">
+        <div style="background: blanchedalmond;width: 50%">我是内容</div>
+    </div>
+
+
+
+    <main style="display: none">
+
+        <div>
+            I'm a block-level-ish element of an unknown width and height, centered vertically within my parent.
+        </div>
+
+    </main>
+
+    <style>
+        body {
+            /*background: #f06d06;*/
+            font-size: 80%;
+            padding: 20px;
+        }
+
+        main {
+            background: white;
+            height: 200px;
+            width: 60%;
+            margin: 0 auto;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            resize: both;
+            overflow: auto;
+        }
+
+        main div {
+            background: black;
+            color: white;
+            width: 50%;
+            padding: 20px;
+            resize: both;
+            overflow: auto;
+        }
+    </style>
 </body>
 </html>
